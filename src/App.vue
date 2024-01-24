@@ -1,11 +1,16 @@
 <!-- the script is where the js code goes -->
-<script>
-import { ref } from "vue" // you need this to use ref()
+<script setup>
+import { ref } from "vue";
 
+// Define variables and constants
+let count = ref(0);
+
+// Define functions
+function increment() {
+  count.value++;
+}
 
 </script>
-
-
 
 <!-- the template is where the html code goes -->
 <template>
@@ -13,18 +18,28 @@ import { ref } from "vue" // you need this to use ref()
     <div id="navbar" class="container">  
             
         <div id="title">Reinhardt's newest website</div>
-            <!-- <div id="logo">
-                <img src="cow.jpg" alt="macad cow"> -->
+            <div id="logo">
+                <img src="./assets/cow.jpg" alt="macad cow">
 
-            <!-- </div> -->
+            </div>
             
         </div>
 
         <div id="flex">
 
-            <div id="sidebar" class="container"> Sidebar </div>
+            <div id="sidebar" class="container"> Sidebar 
+                <button @click="increment">Add one more</button>
 
-            <div id="main" class="container"> What the cow said </div>
+            </div>
+
+
+
+            <div id="main" class="container"> What the philosopher cow said 
+                <p style="margin-left: 8px">Count is: {{ count }}</p>
+
+            </div>
+
+
 
         </div>
 
@@ -56,34 +71,39 @@ import { ref } from "vue" // you need this to use ref()
     #navbar{
 
         height: 50px;
-        border-color: red;
-        text-align: center;
-        vertical-align:baseline;
-        font-size: 25px;
+        border-color: white;
+        text-align: left;
+        vertical-align:bottom;
+        font-size: 30px;
     }
 
     #flex{
-        
+
         display: flex;
         height: calc(100vh - 50px);
     }
 
     #sidebar{
-        
+
+        font-size: 22px;
         width:30%;
-        border-color: blue;
+        border-color: black;
 
     }
 
     #main{
+
+        font-size: 22px;
         width:70%;
-        border-color: green;
+        border-color: black;
 
     }
 
     #title{
+
         width: 70%;
         float:left;
+        
     }
 
     #logo{
@@ -97,7 +117,7 @@ import { ref } from "vue" // you need this to use ref()
     .container{
 
         border-style: dotted;
-        border-width: 1px;
+        border-width: 2px;
 
     }
 
