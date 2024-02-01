@@ -43,7 +43,9 @@ let newColor = ref('');
 // Color try function
 function pickColor() {
   const doc = document.documentElement;
-  doc.style.background = newColor.value
+//   doc.style.background = newColor.value;
+  const main = document.querySelector("#main");
+  main.style.background = newColor.value;
   console.log(newColor.value);
 }
 
