@@ -1,6 +1,7 @@
 <!-- the script is where the js code goes -->
 <script setup>
 import { ref } from "vue";
+import { MagicString } from "vue/compiler-sfc";
 
 // Define variables and constants
 let count = ref(0);
@@ -36,29 +37,18 @@ let getRandomText = (textList) => {
 };
 
 
-
-
-
 // Color try definition
 let newColor = ref('');
 
 // Color try function
 function pickColor() {
   const doc = document.documentElement;
-  doc.style.background = "newColor";
-  console.log(newColor);
+  doc.style.background = newColor.value
+  console.log(newColor.value);
 }
 
 
-
-
-
-
 </script>
-
-
-
-
 
 <!-- the template is where the html code goes -->
 <template>
@@ -84,12 +74,9 @@ function pickColor() {
                 <button @click="pickColor">Apply new color</button>
             </div>
 
-
-
             <div id="main" class="container"> Outputs
                 <p class="outputs" style="margin-left: 8px">Count is: {{ count }}</p>
                 <p class="outputs" style="margin-left: 8px" v-if="randomText"> Philosoher cow says {{ randomText }}</p>
-
             </div>
 
         </div>
