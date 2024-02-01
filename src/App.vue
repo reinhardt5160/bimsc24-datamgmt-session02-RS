@@ -10,8 +10,6 @@ function increment() {
   count.value++;
 }
 
-
-
 // Function for random quote
 let textList = ref([
   '"The greatness of a nation and its moral progress can be judged by the way its animals are treated." — Mahatma Gandhi',
@@ -36,6 +34,25 @@ let getRandomText = (textList) => {
   let randomIndex = Math.floor(Math.random() * textList.length); //get random index for a range b/w o and list length of textList
   return textList[randomIndex]; //call text by index
 };
+
+
+
+
+
+// Color try definition
+let newColor = ref('');
+
+// Color try function
+function pickColor() {
+  const doc = document.documentElement;
+  doc.style.background = "newColor";
+  console.log(newColor);
+}
+
+
+
+
+
 
 </script>
 
@@ -62,6 +79,9 @@ let getRandomText = (textList) => {
                 <button @click="increment">Add one more</button>
                 <button @click="pickRandomText">Say something smart</button>
 
+                <!-- color script try -->
+                <input type="text" id="textInput" v-model = "newColor" placeholder="Your favorite color">
+                <button @click="pickColor">Apply new color</button>
             </div>
 
 
